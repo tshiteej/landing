@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Knowtly - AI Support Assistant</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b82f6", 
+                        "primary-hover": "#2563eb",
+                        "background-light": "#111827", // Remapped for dark mode (actually very dark grey)
+                        "background-dark": "#030712",  // Remapped for dark mode (almost black)
+                        "surface-dark": "#0f172a",     // Dark surface color
+                        "surface-light": "#1e293b",    // Lighter surface color
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary ~ * {
+            animation: sweep .3s ease-in-out;
+        }
+        @keyframes sweep {
+            0%    {opacity: 0; transform: translateY(-10px)}
+            100%  {opacity: 1; transform: translateY(0)}
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-gray-100 font-display antialiased overflow-x-hidden selection:bg-primary/30 selection:text-white">
+<header class="sticky top-0 z-50 w-full bg-background-dark/80 backdrop-blur-md border-b border-white/5">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center gap-2">
+<div class="text-primary relative group">
+<div class="absolute inset-0 bg-primary/20 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-3xl relative z-10">smart_toy</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-white">Knowtly</span>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-sm font-medium text-gray-400 hover:text-white transition-colors" href="#how-it-works">How it Works</a>
+<a class="text-sm font-medium text-gray-400 hover:text-white transition-colors" href="#solutions">Solutions</a>
+<a class="text-sm font-medium text-gray-400 hover:text-white transition-colors" href="#pricing">Pricing</a>
+<a class="text-sm font-medium text-gray-400 hover:text-white transition-colors" href="#faq">FAQ</a>
+</nav>
+<div class="flex items-center gap-3">
+<a class="hidden sm:flex text-sm font-semibold text-gray-300 hover:text-white px-3 py-2" href="#">Log In</a>
+<a class="flex items-center justify-center h-9 px-4 rounded-lg bg-primary text-white text-sm font-bold hover:bg-primary-hover transition-all shadow-[0_0_15px_-3px_rgba(59,130,246,0.5)] hover:shadow-[0_0_20px_-3px_rgba(59,130,246,0.7)]" href="#">
+                        Create Your AI Bot
+                    </a>
+</div>
+</div>
+</div>
+</header>
+<section class="relative pt-16 pb-20 lg:pt-24 lg:pb-28 bg-background-dark overflow-hidden">
+<div class="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen"></div>
+<div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+<div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+<div class="max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-950/40 border border-blue-800/50 text-blue-300 text-xs font-bold uppercase tracking-wide mb-6 backdrop-blur-sm shadow-[0_0_10px_-2px_rgba(59,130,246,0.2)]">
+<span class="material-symbols-outlined text-sm">bolt</span>
+<span>New: GPT-4o Integration</span>
+</div>
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.15] tracking-tight mb-6">
+                        Turn Your Documentation into an <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Intelligent Support Agent</span> instantly.
+                    </h1>
+<p class="text-lg text-gray-400 mb-8 leading-relaxed max-w-lg">
+                        Provide instant answers to your customers and teams. No credit card required to start. Reduce support tickets by 80% with AI trained on your unique data.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 mb-6">
+<button class="flex items-center justify-center h-12 px-8 rounded-lg bg-primary text-white text-base font-bold shadow-[0_0_20px_-5px_rgba(59,130,246,0.6)] hover:bg-primary-hover hover:scale-[1.02] transition-all">
+                            Create Your AI Bot
+                        </button>
+<button class="flex items-center justify-center h-12 px-8 rounded-lg bg-white/5 text-gray-200 border border-white/10 text-base font-bold hover:bg-white/10 transition-colors backdrop-blur-sm">
+                            View Demo
+                        </button>
+</div>
+<p class="text-xs text-gray-500 font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-green-400">check_circle</span>
+                        Free 14-day trial
+                        <span class="w-1 h-1 bg-gray-700 rounded-full mx-1"></span>
+<span class="material-symbols-outlined text-sm text-green-400">check_circle</span>
+                        No credit card required
+                    </p>
+</div>
+<div class="relative lg:h-auto w-full aspect-square lg:aspect-auto flex items-center justify-center perspective-1000">
+<div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-20"></div>
+<div class="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-surface-dark/80 backdrop-blur-xl">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Abstract blue digital network connections and nodes visualization" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuChF1ylF9VbRVkypwkDRKYmfdsFckeOzAkx9HP61Lt4yKZezdgbmmP7cMw-XB9ZIqSUcMcEdinWIKaeV5N46fvrOCXPVXoELEOLZ_hoF5WUQelLTOHYoTdnfk8QgUlBZzmvAl9ZaECYVg0pcf6pgC4OLv5uhjTJNeNuLmYER5wlzKzcy9XvwaHHdq5NjfaIlbsg9vlmZVamUzdQL_XxGlxE4FGzRI-b46yYr8rGZCNY1TIssDp5KpdLYr1GTJydleqw-W7Gx4et2-4'); opacity: 0.1; filter: grayscale(100%) invert(1);"></div>
+<div class="absolute inset-0 flex flex-col p-6 z-10">
+<div class="flex items-center justify-between mb-6 border-b border-white/5 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center text-white shadow-lg ring-1 ring-white/10">
+<span class="material-symbols-outlined">smart_toy</span>
+</div>
+<div>
+<div class="text-sm font-bold text-white">Knowtly Assistant</div>
+<div class="text-xs text-green-400 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.5)]"></span> Online</div>
+</div>
+</div>
+</div>
+<div class="flex-1 space-y-6">
+<div class="flex justify-end">
+<div class="bg-blue-600/90 text-white px-5 py-3 rounded-2xl rounded-tr-sm text-sm max-w-[85%] shadow-md backdrop-blur-sm border border-blue-500/20">
+                                        How do I integrate the API key?
+                                    </div>
+</div>
+<div class="flex justify-start">
+<div class="bg-surface-light/80 text-gray-200 px-5 py-4 rounded-2xl rounded-tl-sm text-sm max-w-[90%] border border-white/5 shadow-lg backdrop-blur-md">
+<p class="mb-3 text-gray-100">To integrate your API key, follow these steps:</p>
+<ol class="list-decimal list-inside space-y-2 ml-1 text-gray-400">
+<li>Go to <span class="text-blue-400 font-medium">Settings &gt; Developers</span>.</li>
+<li>Click "Generate New Key".</li>
+<li>Copy the key to your .env file.</li>
+</ol>
+<div class="mt-3 pt-3 border-t border-white/5 text-xs text-gray-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">menu_book</span> Source: Developer Docs
+                                            </div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-white/5">
+<div class="h-12 bg-black/40 rounded-xl border border-white/10 w-full flex items-center px-4 text-gray-500 text-sm hover:border-white/20 transition-colors cursor-text shadow-inner">
+                                    Type your question...
+                                </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-12 bg-background-light border-y border-white/5">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-sm font-semibold text-gray-500 mb-8 uppercase tracking-widest">Trusted by forward-thinking SaaS teams</p>
+<div class="flex flex-wrap justify-center gap-10 md:gap-20 opacity-50 hover:opacity-90 transition-opacity duration-500">
+<div class="flex items-center gap-2 text-xl font-bold text-gray-300"><span class="material-symbols-outlined">diamond</span> AcmeCorp</div>
+<div class="flex items-center gap-2 text-xl font-bold text-gray-300"><span class="material-symbols-outlined">layers</span> LayerStack</div>
+<div class="flex items-center gap-2 text-xl font-bold text-gray-300"><span class="material-symbols-outlined">bolt</span> BoltShift</div>
+<div class="flex items-center gap-2 text-xl font-bold text-gray-300"><span class="material-symbols-outlined">globe</span> GlobalBank</div>
+<div class="flex items-center gap-2 text-xl font-bold text-gray-300"><span class="material-symbols-outlined">code</span> CodeStream</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-background-dark relative" id="solutions">
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-30"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="text-center max-w-3xl mx-auto mb-20">
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Stop drowning in support tickets</h2>
+<p class="text-lg text-gray-400">The old way involves endless manual replies and frustrated users waiting for answers. Knowtly delivers instant, accurate responses drawn directly from your knowledge base.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-8 lg:gap-16 items-start">
+<div class="space-y-8">
+<div class="bg-surface-light/30 p-8 rounded-2xl border border-white/5 shadow-lg relative overflow-hidden group hover:bg-surface-light/50 transition-colors">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-red-500/60 shadow-[0_0_10px_rgba(239,68,68,0.4)]"></div>
+<h3 class="text-xl font-bold text-white flex items-center gap-3 mb-4">
+<div class="p-2 rounded-lg bg-red-500/10 border border-red-500/20">
+<span class="material-symbols-outlined text-red-400">warning</span>
+</div>
+                            Common Pain Points
+                        </h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-3 text-gray-400">
+<span class="material-symbols-outlined text-red-400/70 text-xl mt-0.5">close</span>
+<span>24+ hour response times leading to churn.</span>
+</li>
+<li class="flex items-start gap-3 text-gray-400">
+<span class="material-symbols-outlined text-red-400/70 text-xl mt-0.5">close</span>
+<span>Repetitive questions ("How do I reset password?") wasting agent time.</span>
+</li>
+<li class="flex items-start gap-3 text-gray-400">
+<span class="material-symbols-outlined text-red-400/70 text-xl mt-0.5">close</span>
+<span>Outdated documentation that users can't find.</span>
+</li>
+</ul>
+</div>
+<div class="bg-gradient-to-br from-surface-light/40 to-blue-900/10 p-8 rounded-2xl border border-blue-500/20 shadow-xl relative overflow-hidden group ring-1 ring-blue-500/20 hover:ring-blue-500/40 transition-all">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+<h3 class="text-xl font-bold text-white flex items-center gap-3 mb-4">
+<div class="p-2 rounded-lg bg-blue-500/10 border border-blue-500/20">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+</div>
+                            The Knowtly Solution
+                        </h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-3 text-gray-300">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5 shadow-blue-500/50">check</span>
+<span><strong>Instant answers</strong> available 24/7/365.</span>
+</li>
+<li class="flex items-start gap-3 text-gray-300">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5">check</span>
+<span>Deflects up to <strong>80% of routine tickets</strong> automatically.</span>
+</li>
+<li class="flex items-start gap-3 text-gray-300">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5">check</span>
+<span>Always synced with your latest Notion, Docs, or URL content.</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="relative mt-8 md:mt-0">
+<div class="absolute inset-0 bg-gradient-to-tr from-blue-600/10 to-transparent rounded-full blur-3xl opacity-40"></div>
+<div class="relative bg-surface-dark rounded-2xl shadow-2xl border border-white/10 overflow-hidden ring-1 ring-white/5">
+<div class="bg-black/40 border-b border-white/10 px-4 py-3 flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+<div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+<div class="text-xs text-gray-600 ml-2 font-mono">knowtly-widget.js</div>
+</div>
+<div class="p-8 bg-surface-dark/95 backdrop-blur" style="min-height: 450px;">
+<div class="space-y-8">
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-gray-700 flex-shrink-0 border border-gray-600"></div>
+<div class="bg-surface-light p-4 rounded-2xl rounded-tl-none text-sm text-gray-200 border border-white/10 shadow-sm">
+                                        Can I invite team members on the Starter plan?
+                                    </div>
+</div>
+<div class="flex gap-4 flex-row-reverse">
+<div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-blue-700 flex-shrink-0 flex items-center justify-center text-white shadow-lg border border-blue-500/30">
+<span class="material-symbols-outlined text-sm">smart_toy</span>
+</div>
+<div class="bg-blue-900/10 border border-blue-500/20 p-5 rounded-2xl rounded-tr-none text-sm text-gray-200 shadow-sm w-full backdrop-blur-sm">
+<p class="mb-3">Yes! The Starter plan includes up to <strong>5 team members</strong>.</p>
+<p class="mb-2">To invite them:</p>
+<ol class="list-decimal ml-4 space-y-2 text-gray-400 text-xs">
+<li>Go to Team Settings</li>
+<li>Click "Invite Member"</li>
+<li>Enter their email address</li>
+</ol>
+<button class="mt-4 text-blue-400 text-xs font-bold hover:text-blue-300 flex items-center gap-1 group/btn">Read full article <span class="group-hover/btn:translate-x-0.5 transition-transform">↗</span></button>
+</div>
+</div>
+</div>
+<div class="absolute bottom-6 right-6 bg-surface-light p-4 rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] border border-white/10 animate-bounce" style="animation-duration: 3s;">
+<div class="flex items-center gap-4">
+<div class="bg-green-500/10 text-green-400 p-2.5 rounded-lg border border-green-500/20">
+<span class="material-symbols-outlined">trending_down</span>
+</div>
+<div>
+<div class="text-[10px] text-gray-500 uppercase font-bold tracking-wider">Ticket Volume</div>
+<div class="text-xl font-bold text-white">-78%</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-background-light border-y border-white/5" id="how-it-works">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-20">
+<h2 class="text-3xl md:text-4xl font-bold text-white">Up and running in minutes</h2>
+<p class="text-gray-400 mt-4 text-lg">No complex setup. No training data required. Just connect and go.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-12 relative">
+<div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent border-t border-dashed border-gray-700 z-0"></div>
+<div class="relative z-10 flex flex-col items-center text-center group">
+<div class="w-24 h-24 bg-surface-dark border border-white/10 rounded-2xl flex items-center justify-center shadow-lg mb-8 group-hover:border-primary group-hover:shadow-[0_0_20px_-5px_rgba(59,130,246,0.4)] transition-all duration-300">
+<span class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform duration-300">cloud_upload</span>
+</div>
+<div class="px-2">
+<h3 class="text-xl font-bold text-white mb-3">1. Add Content</h3>
+<p class="text-sm text-gray-400 leading-relaxed">
+                            Upload PDFs, connect Notion pages, or simply paste your website URL. We support over 20+ sources.
+                        </p>
+</div>
+</div>
+<div class="relative z-10 flex flex-col items-center text-center group">
+<div class="w-24 h-24 bg-surface-dark border border-white/10 rounded-2xl flex items-center justify-center shadow-lg mb-8 group-hover:border-primary group-hover:shadow-[0_0_20px_-5px_rgba(59,130,246,0.4)] transition-all duration-300">
+<span class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform duration-300">psychology</span>
+</div>
+<div class="px-2">
+<h3 class="text-xl font-bold text-white mb-3">2. Train AI</h3>
+<p class="text-sm text-gray-400 leading-relaxed">
+                            Our AI automatically indexes and organizes your knowledge. It takes less than 2 minutes to train.
+                        </p>
+</div>
+</div>
+<div class="relative z-10 flex flex-col items-center text-center group">
+<div class="w-24 h-24 bg-surface-dark border border-white/10 rounded-2xl flex items-center justify-center shadow-lg mb-8 group-hover:border-primary group-hover:shadow-[0_0_20px_-5px_rgba(59,130,246,0.4)] transition-all duration-300">
+<span class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform duration-300">code</span>
+</div>
+<div class="px-2">
+<h3 class="text-xl font-bold text-white mb-3">3. Embed Widget</h3>
+<p class="text-sm text-gray-400 leading-relaxed">
+                            Copy a simple snippet of code and paste it into your site header. Live instantly.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-background-dark relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-blue-900/5 pointer-events-none"></div>
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="bg-surface-dark/50 backdrop-blur-sm text-white rounded-3xl p-8 md:p-14 shadow-2xl relative overflow-hidden border border-white/10">
+<div class="absolute top-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full blur-[80px]"></div>
+<div class="absolute bottom-0 left-0 w-60 h-60 bg-purple-500/10 rounded-full blur-[60px]"></div>
+<div class="relative z-10 text-center">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white text-xs font-bold uppercase tracking-wide mb-8 shadow-inner">
+<span class="material-symbols-outlined text-sm">shield</span>
+<span>Enterprise Grade Security</span>
+</div>
+<h2 class="text-3xl md:text-5xl font-bold mb-8 tracking-tight">Not just another generic wrapper</h2>
+<p class="text-gray-300 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
+                        Most AI bots hallucinate or make up facts. Knowtly is strictly <span class="text-white font-bold underline decoration-primary decoration-4 underline-offset-4 decoration-skip-ink-none">bounded by your context</span>. If the answer isn't in your docs, it won't invent one.
+                    </p>
+<div class="grid sm:grid-cols-2 gap-5 text-left max-w-xl mx-auto">
+<div class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/5 hover:bg-white/10 hover:border-white/20 transition-all cursor-default">
+<div class="bg-green-500/20 p-1 rounded-full"><span class="material-symbols-outlined text-green-400 text-sm">check</span></div>
+<span class="font-medium text-sm text-gray-200">Anti-Hallucination Guardrails</span>
+</div>
+<div class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/5 hover:bg-white/10 hover:border-white/20 transition-all cursor-default">
+<div class="bg-green-500/20 p-1 rounded-full"><span class="material-symbols-outlined text-green-400 text-sm">check</span></div>
+<span class="font-medium text-sm text-gray-200">Citations &amp; Source Links</span>
+</div>
+<div class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/5 hover:bg-white/10 hover:border-white/20 transition-all cursor-default">
+<div class="bg-green-500/20 p-1 rounded-full"><span class="material-symbols-outlined text-green-400 text-sm">check</span></div>
+<span class="font-medium text-sm text-gray-200">SOC-2 Compliant Data</span>
+</div>
+<div class="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/5 hover:bg-white/10 hover:border-white/20 transition-all cursor-default">
+<div class="bg-green-500/20 p-1 rounded-full"><span class="material-symbols-outlined text-green-400 text-sm">check</span></div>
+<span class="font-medium text-sm text-gray-200">Custom Brand Tone</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-background-light">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-20">
+<h2 class="text-3xl md:text-4xl font-bold text-white">One AI, infinite possibilities</h2>
+<p class="text-gray-400 mt-4 text-lg">Tailor Knowtly to serve different teams in your organization.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="p-8 rounded-2xl border border-white/5 bg-surface-dark shadow-lg hover:shadow-2xl hover:border-primary/30 hover:-translate-y-1 transition-all duration-300 group">
+<div class="w-14 h-14 bg-blue-900/20 rounded-xl flex items-center justify-center text-blue-400 mb-6 border border-blue-500/20 group-hover:bg-blue-900/30 transition-colors">
+<span class="material-symbols-outlined text-3xl">support_agent</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">SaaS Support</h3>
+<p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Handle Tier 1 support inquiries automatically. Reset passwords, explain features, and guide users without human intervention.
+                    </p>
+<a class="text-blue-400 text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="#">
+                        Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="p-8 rounded-2xl border border-white/5 bg-surface-dark shadow-lg hover:shadow-2xl hover:border-purple-500/30 hover:-translate-y-1 transition-all duration-300 group">
+<div class="w-14 h-14 bg-purple-900/20 rounded-xl flex items-center justify-center text-purple-400 mb-6 border border-purple-500/20 group-hover:bg-purple-900/30 transition-colors">
+<span class="material-symbols-outlined text-3xl">library_books</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Docs Assistant</h3>
+<p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Turn your static API documentation into an interactive conversation. Developers can ask "How do I auth?" and get code snippets.
+                    </p>
+<a class="text-purple-400 text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="#">
+                        See example <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="p-8 rounded-2xl border border-white/5 bg-surface-dark shadow-lg hover:shadow-2xl hover:border-orange-500/30 hover:-translate-y-1 transition-all duration-300 group">
+<div class="w-14 h-14 bg-orange-900/20 rounded-xl flex items-center justify-center text-orange-400 mb-6 border border-orange-500/20 group-hover:bg-orange-900/30 transition-colors">
+<span class="material-symbols-outlined text-3xl">folder_shared</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Internal Knowledge</h3>
+<p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Stop Slack interruptions. Let your team ask the bot about HR policies, engineering guidelines, or sales playbooks.
+                    </p>
+<a class="text-orange-400 text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all" href="#">
+                        View integration <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-background-dark border-t border-white/5" id="pricing">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-white">Simple, transparent pricing</h2>
+<p class="text-gray-400 mt-4 text-lg">Start for free, upgrade as you grow.</p>
+</div>
+<div class="max-w-lg mx-auto bg-surface-dark rounded-3xl shadow-2xl border border-white/10 overflow-hidden relative">
+<div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500"></div>
+<div class="p-10 text-center border-b border-white/5">
+<h3 class="text-sm font-bold text-blue-400 uppercase tracking-widest mb-2">Pro Plan</h3>
+<div class="flex items-baseline justify-center gap-1 mt-6">
+<span class="text-6xl font-black text-white">$49</span>
+<span class="text-gray-400 text-lg">/month</span>
+</div>
+<p class="text-sm text-gray-400 mt-4">Everything you need to automate support</p>
+</div>
+<div class="p-10 bg-black/30">
+<ul class="space-y-5 mb-10">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span class="text-gray-300 font-medium">Up to 2,000 conversations/mo</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span class="text-gray-300 font-medium">Unlimited Knowledge Sources</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span class="text-gray-300 font-medium">Custom Branding</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span class="text-gray-300 font-medium">Slack &amp; Discord Integrations</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span class="text-gray-300 font-medium">Advanced Analytics</span>
+</li>
+</ul>
+<button class="w-full py-4 rounded-xl bg-primary text-white font-bold text-lg hover:bg-primary-hover transition-all shadow-[0_0_20px_-5px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_-5px_rgba(59,130,246,0.7)] hover:scale-[1.02]">
+                        Start 14-Day Free Trial
+                    </button>
+<p class="text-center text-xs text-gray-500 mt-6">No credit card required</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-background-light" id="faq">
+<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl font-bold text-white mb-12 text-center">Frequently Asked Questions</h2>
+<div class="space-y-4">
+<details class="group bg-surface-dark rounded-xl p-5 cursor-pointer [&amp;_summary::-webkit-details-marker]:hidden border border-white/5 open:border-primary/50 open:bg-surface-dark/80 transition-all hover:border-white/10">
+<summary class="flex justify-between items-center font-bold text-gray-200 list-none">
+<span>Is my data safe?</span>
+<span class="transition group-open:rotate-180 text-gray-400">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<div class="text-gray-400 mt-4 text-sm leading-relaxed pl-1">
+                        Absolutely. We use enterprise-grade encryption for all stored data. We are SOC-2 Type II compliant and never train our public models on your private data.
+                    </div>
+</details>
+<details class="group bg-surface-dark rounded-xl p-5 cursor-pointer [&amp;_summary::-webkit-details-marker]:hidden border border-white/5 open:border-primary/50 open:bg-surface-dark/80 transition-all hover:border-white/10">
+<summary class="flex justify-between items-center font-bold text-gray-200 list-none">
+<span>How long does training take?</span>
+<span class="transition group-open:rotate-180 text-gray-400">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<div class="text-gray-400 mt-4 text-sm leading-relaxed pl-1">
+                        For most knowledge bases (under 500 pages), training is complete within 2-5 minutes. Larger datasets may take up to 15 minutes.
+                    </div>
+</details>
+<details class="group bg-surface-dark rounded-xl p-5 cursor-pointer [&amp;_summary::-webkit-details-marker]:hidden border border-white/5 open:border-primary/50 open:bg-surface-dark/80 transition-all hover:border-white/10">
+<summary class="flex justify-between items-center font-bold text-gray-200 list-none">
+<span>Can I customize the chatbot appearance?</span>
+<span class="transition group-open:rotate-180 text-gray-400">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<div class="text-gray-400 mt-4 text-sm leading-relaxed pl-1">
+                        Yes, you can fully customize the colors, logo, welcome message, and avatar to match your brand identity perfectly.
+                    </div>
+</details>
+<details class="group bg-surface-dark rounded-xl p-5 cursor-pointer [&amp;_summary::-webkit-details-marker]:hidden border border-white/5 open:border-primary/50 open:bg-surface-dark/80 transition-all hover:border-white/10">
+<summary class="flex justify-between items-center font-bold text-gray-200 list-none">
+<span>What happens if I exceed the message limit?</span>
+<span class="transition group-open:rotate-180 text-gray-400">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<div class="text-gray-400 mt-4 text-sm leading-relaxed pl-1">
+                        We will notify you when you approach the limit. You can easily upgrade your plan or purchase an add-on pack. We won't shut off your bot abruptly.
+                    </div>
+</details>
+</div>
+</div>
+</section>
+<section class="py-32 bg-background-dark relative overflow-hidden border-t border-white/5">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent opacity-50 pointer-events-none"></div>
+<div class="absolute -top-32 -left-32 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="absolute -bottom-32 -right-32 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+<h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-8 tracking-tight">
+                Ready to automate your support?
+            </h2>
+<p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+                Join 500+ SaaS companies saving hours every day with Knowtly.
+            </p>
+<div class="flex flex-col sm:flex-row gap-5 justify-center">
+<button class="flex items-center justify-center h-14 px-8 rounded-xl bg-primary text-white text-lg font-bold hover:bg-primary-hover transition-all shadow-[0_0_30px_-5px_rgba(59,130,246,0.6)] hover:scale-105">
+                    Get Started for Free
+                </button>
+<button class="flex items-center justify-center h-14 px-8 rounded-xl bg-white/5 text-white border border-white/10 text-lg font-bold hover:bg-white/10 transition-colors backdrop-blur-sm">
+                    Talk to Sales
+                </button>
+</div>
+</div>
+</section>
+<footer class="bg-background-light border-t border-white/5 pt-20 pb-10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
+<div class="col-span-2 md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">smart_toy</span>
+<span class="text-xl font-bold text-white">Knowtly</span>
+</div>
+<p class="text-sm text-gray-500 mb-4 leading-relaxed max-w-xs">
+                        The AI knowledge assistant for modern SaaS teams. Turn documentation into conversations.
+                    </p>
+</div>
+<div>
+<h4 class="font-bold text-white mb-6">Product</h4>
+<ul class="space-y-3 text-sm text-gray-500">
+<li><a class="hover:text-primary transition-colors" href="#">Features</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Integrations</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Pricing</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Changelog</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white mb-6">Company</h4>
+<ul class="space-y-3 text-sm text-gray-500">
+<li><a class="hover:text-primary transition-colors" href="#">About</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white mb-6">Legal</h4>
+<ul class="space-y-3 text-sm text-gray-500">
+<li><a class="hover:text-primary transition-colors" href="#">Privacy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Security</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-sm text-gray-600">© 2024 Knowtly Inc. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-gray-500 hover:text-white transition-colors" href="#">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+</a>
+<a class="text-gray-500 hover:text-white transition-colors" href="#">
+<span class="sr-only">GitHub</span>
+<svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,43 @@
+Refund Policy
+Last updated: December 29, 2025
+
+1. Subscription Plans
+Knowtly offers subscription-based services for our note-taking and knowledge management platform. We want you to be satisfied with your purchase, but we also want to provide a sustainable service to our community.
+
+2. Refund Eligibility
+We offer a 14-day money-back guarantee for all new subscriptions. If you are not satisfied with our services within the first 14 days after your initial purchase, you may request a full refund.
+
+To be eligible for a refund:
+The refund request must be made within 14 days of the initial purchase.
+You must provide a reason for the refund request (this helps us improve).
+Your account must be in good standing.
+3. Non-Refundable Items
+The following are not eligible for refunds:
+
+Purchases made beyond the 14-day refund window.
+Subscription renewals (after the initial subscription period).
+Accounts that have violated our Terms of Service.
+Usage-based charges (if applicable) that have already been incurred.
+4. How to Request a Refund
+To request a refund, please contact our support team at support@knowtly.app with the following information:
+
+Your account email address.
+Date of purchase.
+Reason for requesting the refund.
+5. Refund Processing
+Refunds will be processed through our payment processor (e.g., Stripe, Paddle, or Apple/Google if purchased via app stores).
+
+Once approved, refunds typically take 5-10 business days to process, depending on your payment method and financial institution.
+
+6. Subscription Cancellation
+Canceling your subscription will stop future billing but will not automatically generate a refund for previous charges. You may continue to access the service until the end of your current billing period.
+
+To cancel your subscription, log in to your account and go to the billing settings, or contact our support team at support@knowtly.app.
+
+7. Changes to This Policy
+We reserve the right to modify this refund policy at any time. If we make changes, we will notify you by updating the date at the top of this policy.
+
+8. Contact Us
+If you have any questions about our Refund Policy, please contact us at:
+
+Email: support@knowtly.app
