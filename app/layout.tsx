@@ -55,6 +55,11 @@ export const metadata: Metadata = {
     width: 'device-width',
     initialScale: 1,
   },
+  icons: {
+    icon: '/logo.jpeg',
+    shortcut: '/logo.jpeg',
+    apple: '/logo.jpeg',
+  },
 }
 
 export default function RootLayout({
@@ -71,6 +76,10 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
         />
+        <meta property="og:logo" content="https://knowtly.app/logo.jpeg" />
+        <link rel="icon" type="image/jpeg" href="/logo.jpeg" />
+        <link rel="shortcut icon" type="image/jpeg" href="/logo.jpeg" />
+        <link rel="apple-touch-icon" href="/logo.jpeg" />
       </head>
       <body className={`${inter.variable} bg-background-dark text-gray-100 font-display antialiased overflow-x-hidden selection:bg-primary/30 selection:text-white`}>
         <Script

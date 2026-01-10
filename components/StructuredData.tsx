@@ -6,7 +6,7 @@ export default function StructuredData() {
     description:
       'AI-powered support assistant that turns documentation into intelligent support agents. Reduce support tickets by 80% with AI trained on your unique data.',
     url: 'https://knowtly.app',
-    logo: 'https://knowtly.app/logo.png',
+    logo: 'https://knowtly.app/logo.jpeg',
     sameAs: ['https://twitter.com/knowtly', 'https://github.com/knowtly'],
   }
 
