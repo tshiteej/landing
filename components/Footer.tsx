@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Script from 'next/script'
 
 export default function Footer() {
   return (
@@ -90,8 +91,8 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-sm text-gray-600">© 2024 Knowtly Inc. All rights reserved.</p>
+        {/* <div className="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-sm text-gray-600">© 2026 Knowtly All rights reserved.</p>
           <div className="flex gap-6">
             <Link className="text-gray-500 hover:text-white transition-colors" href="#" aria-label="Twitter">
               <span className="sr-only">Twitter</span>
@@ -110,8 +111,14 @@ export default function Footer() {
               </svg>
             </Link>
           </div>
-        </div>
+        </div> */}
       </div>
+      <Script
+        src="https://widget.knowtly.app/widget.js"
+        data-project-id="cmj5vb67i001ahsugelbi2m44"
+        data-public-key="cmj5vb67i001ahsugelbi2m44"
+        strategy="lazyOnload"
+      />
     </footer>
   )
 }

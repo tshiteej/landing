@@ -20,19 +20,40 @@ export default function ContactPage() {
     })
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setSubmitStatus('success')
-      setFormData({ name: '', email: '', reason: '', message: '' })
+    const form = e.currentTarget
+    const formDataToSend = new FormData(form)
+    
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formDataToSend,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
       
-      // Reset success message after 5 seconds
+      if (response.ok) {
+        setIsSubmitting(false)
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', reason: '', message: '' })
+        form.reset()
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => setSubmitStatus('idle'), 5000)
+      } else {
+        throw new Error('Form submission failed')
+      }
+    } catch (error) {
+      setIsSubmitting(false)
+      setSubmitStatus('error')
+      
+      // Reset error message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000)
-    }, 1000)
+    }
   }
 
   return (
@@ -76,7 +97,16 @@ export default function ContactPage() {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              {submitStatus === 'error' && (
+                <div className="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-xl">
+                  <div className="flex items-center gap-3">
+                    <span className="material-symbols-outlined text-red-400 text-2xl">error</span>
+                    <p className="text-red-400 font-medium">Something went wrong. Please try again later.</p>
+                  </div>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} action="https://formspree.io/f/xaqqwbny" method="POST" className="space-y-6">
                 {/* Name Field */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">

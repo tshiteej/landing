@@ -16,16 +16,16 @@ export default function CTA() {
         <div className="flex flex-col sm:flex-row gap-5 justify-center">
           <Link
             className="flex items-center justify-center h-14 px-8 rounded-xl bg-primary text-white text-lg font-bold hover:bg-primary-hover transition-all shadow-[0_0_30px_-5px_rgba(59,130,246,0.6)] hover:scale-105"
-            href="#"
+            href="https://app.knowtly.app/register"
           >
             Get Started for Free
           </Link>
-          <Link
+          {/* <Link
             className="flex items-center justify-center h-14 px-8 rounded-xl bg-white/5 text-white border border-white/10 text-lg font-bold hover:bg-white/10 transition-colors backdrop-blur-sm"
             href="#"
           >
             Talk to Sales
-          </Link>
+          </Link> */}
         </div>
       </div>
     </section>

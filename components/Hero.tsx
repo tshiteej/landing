@@ -26,16 +26,16 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <Link
                 className="flex items-center justify-center h-12 px-8 rounded-lg bg-primary text-white text-base font-bold shadow-[0_0_20px_-5px_rgba(59,130,246,0.6)] hover:bg-primary-hover hover:scale-[1.02] transition-all"
-                href="#"
+                href="https://app.knowtly.app/register"
               >
                 Create Your AI Bot
               </Link>
-              <Link
+              {/* <Link
                 className="flex items-center justify-center h-12 px-8 rounded-lg bg-white/5 text-gray-200 border border-white/10 text-base font-bold hover:bg-white/10 transition-colors backdrop-blur-sm"
                 href="#"
               >
                 View Demo
-              </Link>
+              </Link> */}
             </div>
             <p className="text-xs text-gray-500 font-medium flex items-center gap-2">
               <span className="material-symbols-outlined text-sm text-green-400">check_circle</span>

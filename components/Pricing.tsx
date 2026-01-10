@@ -99,7 +99,7 @@ export default function Pricing() {
             </ul>
             <Link
               className="w-full py-4 rounded-xl bg-primary text-white font-bold text-lg hover:bg-primary-hover transition-all shadow-[0_0_20px_-5px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_-5px_rgba(59,130,246,0.7)] hover:scale-[1.02] flex items-center justify-center"
-              href="#"
+              href="https://app.knowtly.app/register"
             >
               Start 7-Day Free Trial
             </Link>
