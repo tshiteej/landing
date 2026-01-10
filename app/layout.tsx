@@ -24,12 +24,21 @@ export const metadata: Metadata = {
     title: 'Knowtly - AI Support Assistant',
     description: 'Turn your documentation into an intelligent support agent instantly. Reduce support tickets by 80% with AI trained on your unique data.',
     siteName: 'Knowtly',
+    images: [
+      {
+        url: 'https://knowtly.app/og-image1.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Knowtly - AI Support Assistant',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Knowtly - AI Support Assistant',
     description: 'Turn your documentation into an intelligent support agent instantly. Reduce support tickets by 80% with AI trained on your unique data.',
     creator: '@knowtly',
+    images: ['https://knowtly.app/og-image1.jpg'],
   },
   robots: {
     index: true,
