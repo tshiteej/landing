@@ -77,6 +77,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
         <meta property="og:logo" content="https://knowtly.app/logo.jpeg" />
+        <meta name="google-site-verification" content="7zPQSBm1Ar88WdIqkrD4sW10uF814XN6YZ27Tn-X0_8" />
         <link rel="icon" type="image/jpeg" href="/logo.jpeg" />
         <link rel="shortcut icon" type="image/jpeg" href="/logo.jpeg" />
         <link rel="apple-touch-icon" href="/logo.jpeg" />
